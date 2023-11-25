@@ -18,16 +18,19 @@ export const invoice = {
     },
     items: [
         {
+            id: 1,
             product: "producto1",
             price: 1000,
             quantity: 1,
         },
-        {
+        {   
+            id: 2,
             product: "producto2",
             price: 2000,
             quantity: 1,
         },
         {
+            id: 3,
             product: "producto3",
             price: 3000,
             quantity: 1,
