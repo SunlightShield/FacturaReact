@@ -1,55 +1,72 @@
 import { Getdata } from "../Servicios/Getdata";
+import { ClientView } from "./ClientView";
+import { InvoiceView } from "./InvoiceView";
+
+
 export const App = () => {
 
     const { id, name, cliente, company, items } = Getdata();
     return (
         <>
 
-            <ul>
-                <li>Id: {id} </li>
-                <li>Cliente: {name}</li>
-            </ul>
 
-            <h3>Datos Cliente</h3>
+            <div className="container">
 
-            <ul>
-                <li>Nombre del Cliente: {cliente.name} </li>
-                <li>Apellido del Cliente: {cliente.lastname}</li>
-                <li>Direccion del Cliente: {cliente.address.country}</li>
-                <li>Direccion del Cliente: {cliente.address.city}</li>
-                <li>Direccion del Cliente: {cliente.address.street}</li>
-                <li>Direccion del Cliente: {cliente.address.number}</li>
-            </ul>
+                <div className="card my-3">
 
-            <h3>Datos Empresa</h3>
+                
+                    
+                    <div className="card-header">
+                        Factura Dinamica
+                    </div> 
 
-            <ul>
-                <li>Nombre de la Empresa: {company.name} </li>
-                <li>Rut de la Empresa: {company.RutEmpresa} </li>
-            </ul>
+                    <div className="card-body">
+                    <InvoiceView id={id} name={name}/>
 
-            <h4>Productos</h4>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Producto</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                    </tr>
-                </thead>
+                    <div className="row my-4">
 
-                <tbody>
-                    {items.map(({id, product, price, quantity}) => {
-                        return (
-                            <tr key={id}>
-                                <td>{product}</td>
-                                <td>{quantity}</td>
-                                <td>{price}</td>
+                        <div className="col">
+                            <h3>Datos Cliente</h3>
+
+                        <ClientView cliente={cliente}/>
+                        </div>
+
+                        <div className="col">
+                            <h3>Datos Empresa</h3>
+
+                            <ul className="list-group">
+                                <li className="list-group-item">Nombre de la Empresa: {company.name} </li>
+                                <li className="list-group-item">Rut de la Empresa: {company.RutEmpresa} </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <h4 className="mt-2">Productos</h4>
+                    <table className="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
                             </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
+                        </thead>
+
+                        <tbody>
+                            {items.map(({ id, product, price, quantity }) => {
+                                return (
+                                    <tr key={id}>
+                                        <td>{product}</td>
+                                        <td>{quantity}</td>
+                                        <td>{price}</td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
         </>
 
     )
