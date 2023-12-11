@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 
 export const FormItemsView = ({ handler }) => {
 
@@ -55,9 +56,11 @@ export const FormItemsView = ({ handler }) => {
             price: '',
             quantity: '',
         });
+
     }
 
     return (<>
+     <ToastContainer />
         <form className="w-50" onSubmit={onInvoiceItemsSubmit}>
             <input
                 type="text"

@@ -1,37 +1,37 @@
 
 export const invoice = {
     id: 10,
-    name: 'Componentes PC',
+    name: 'Generico',
     client: {
-        name: 'Pepe',
-        lastName: 'Doe',
+        name: 'anon',
+        lastName: 'anon',
         address: {
-            country: 'USA',
-            city: 'Los Angeles',
-            street: 'One Street',
-            number: 12
+            country: 'Chile',
+            city: 'Santiago',
+            street: 'CalleFalsa',
+            number: 123
         }
     },
     company: {
-        name: 'New Egg',
+        name: 'Nombre Generico',
         fiscalNumber: 1234567,
     },
     items: [
         {
             id: 1,
-            product: 'Cpu Intel i7',
-            price: 499,
+            product: 'Mesa',
+            price: 123,
             quantity: 1,
         },
         {   id: 2,
-            product: 'Corsair Keyboard Mecanico',
-            price: 150,
+            product: 'Producto Random',
+            price: 321,
             quantity: 2,
         },
         {
             id: 3,
-            product: 'Monitor Asus',
-            price: 350,
+            product: 'Monitor',
+            price: 345,
             quantity: 1,
         },
     ]
